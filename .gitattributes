@@ -1,2 +1,2 @@
 **/*.COM binary
-* text eol=crlf
+CALENDAR/* text eol=crlf
