@@ -7,4 +7,4 @@ A project from 1987. It began under CP/M on an Osborne 1 a couple of years befor
 
 Sample printout of a month calendar:
 
-![Calendar of February, 1255](february-1255.jpg)
+<img width="2048" height="1606" alt="Calendar of February, 1255" src="https://github.com/user-attachments/assets/aec0e74d-49e1-4554-9677-e1e77ceec935" />
