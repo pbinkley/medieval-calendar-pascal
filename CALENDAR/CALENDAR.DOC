@@ -1,0 +1,125 @@
+Binkley's Calendar Program
+
+Update: Oct. 26 1987; Copyright (C) Peter Binkley, 1987
+
+Version 3.3   This information replaces some of the information listed below
+under Version 3.2.
+
+    Improvements in Version 3.3:
+
+        - the program no longer uses that hideous yellow on colour monitors.
+        - the speed of the program in displaying some information (especially
+monthly calendars) has been improved.
+        - the datafiles have been amalgamated.  The information should be in
+the same format as before (described below), but the structure of the file is
+this:
+        \regnal
+        [ listing of regnal years, as below ]
+        \end
+        \feast
+        [ listing of feast days, as below ]
+        \end
+Regnal years and feast days must each be in one block, but the order of the
+blocks does not matter.  There may be any amount of material before the first
+'\' line.  The '\' must be at the beginning of the line.  The default name
+for the data file is 'CALENDAR.DAT'; if you wish to load a different data file,
+put its name as the first (and only) parameter (e.g. 'CALENDAR YORK.DAT').
+       - a list of the feast days now loaded may be displayed (type 'F' on the
+year menu).  The feast days are displayed in the order in which they were
+loaded; for this reason, it is a good idea to alphabetize your list of feast
+days.
+       - Corpus Christi day appears on monthly calendars only after 1264 (the
+year in which this feast was instituted.}
+
+Version 3.2                         Aug 27, '87
+
+Copyright (C) Peter Binkley, 1987
+This program may be freely copied and shared, but is not to be sold without
+the author's permission.
+
+This program is a supplement to C. R. Cheney's Handbook for Students of
+English History, Royal Historical Society Guides and Handbooks No. 4 (London,
+1945; rpt. with corrections 1981).  The user simply enters the year in
+question; the program then indicates the Indiction, produces a table of the
+Sundays of the year with their position in the liturgical year, and finally
+shows the regnal year of the English monarch or the pontifical year of the
+Pope.  The user may then request a calendar of any month in that year.  The
+monthly calendar is laid out in the form of modern calendars, with the Sundays
+marked according to their liturgical position, and each day marked with its
+position in the Roman calendar.  Using the PrtSc key, the user may obtain a
+copy of the yearly table or of any monthly calendar: simply hold down the
+Shift key and press PrtSc.  If the user has any questions about the medieval
+calendar itself, Cheney's book should be consulted.  The file may be edited
+using Nota Bene or another word processor capable of handling pure ASCII text;
+this is sometimes called 'program-editing' or 'non-document' mode.
+
+This program is good for years between 500 and 1582 A.D.  English regnal years
+for William I to Henry VII (1066-1509) and pontifical years for Alexander II
+to Alexander VI (1061-1503) are included.
+
+Abbreviations:
+   Anniv.      Anniversary
+   Cor.        Coronation
+   Depos.      Deposition
+   Elec.       Election
+   Resign.     Resignation
+   Restor.     Restoration
+   Resum.      Resumption
+Antipopes are marked with an '@'.
+
+In version 3.1 I have added the ability to include fixed feasts on the monthly
+calendars.  A list of fixed feasts may be kept in a file named CAL-FST.DAT,
+which must be in the current directory when the program is run.  The feasts
+are listed in the following format: 'Christmas=25/12', i.e. Name=Day/Month.
+No more than one feast should be on a line.  The name may be up to 10
+characters long.  Any number of feasts may be in the list; however, no more
+than three feasts will be remembered for a given day.  If that day happens to
+fall on a Sunday, the Sunday name will be shown first and no more than two
+other names will be shown; indeed, any other names are discarded and lost
+until the program is restarted.  I've provided a copy of CAL-FST.DAT with a
+few of the more commonly used feasts; for more, see Cheney pp. 43-64.
+
+In version 3.2, I've allowed the user to determine what series of regnal years
+will be available.  The series are kept in a file called CAL-REG.DAT, which
+must in the current directory when the program is run.  There may be up to 10
+series.  Each series should begin with a line starting with a '#', indicating
+the name of the series: e.g. '#Kings of England'.  Then follows the list of
+rulers, in order of starting date, in this format:
+
+     William I:     Cor 25/12/1066   Death 9/9/1087'
+
+i.e. 'Name: StartType Day/Month/Year EndType Day/Month/Year'.  The names may
+be up to 13 characters long.  Acceptable StartTypes (i.e. ways of beginning a
+reign) are: 'Cor': Coronation; 'Elec': Election; 'Resum': Resumption;
+'Restor': Restoration; or simply 'Start'.  The user may assign these at will;
+their only role is to appear on the screen in the appropriate years. 
+Acceptable EndTypes are: 'Death'; 'Depos': Deposed; 'Resign': Resignation;
+'Ended'.  When a reign started or ended in a given month but on an unknown
+day, list the day as '0' (zero).  If a reign's anniversary was celebrated on
+Ascension day (a moveable feast), as was King John's, enter the start day as
+'Ascension/1099'.  Ascension is the only feast for which this will work.  If
+a ruler was deposed and then restored, indicate it in this way: first put a
+line indicating the very beginning and very end of his reign; then, in a
+second line with the name '*', give the period of the suppression of his
+rule.  For example, for Henry VI of England, the entry looks like this:
+
+    Henry VI:      Cor 1/9/1422     Depos 11/4/1471
+    *:             Restor 4/3/1461  Depos 0/9/1470
+
+He was crowned in 1422, deposed in 1461, restored in 1470 and deposed in 1471. 
+The second line appears confusing, for it puts the StartType (which refers to
+the manner of his restoration) with the date of the beginning of the
+suppression of his reign; this is unavoidable.
+    When the program loads the file, it will report any unintelligible
+entries.
+    If you want to use file names other than CAL-FST.DAT and CAL-REG.DAT, you
+may.  To get the program to load your files, simply put them on the command
+line after the program name, regnal years first.  For example, if you had
+special files relevant to Sicily, you might call them SIC-FST.DAT and 
+SIC-REG.DAT; you would get the progam to load them by typing: 
+
+    CALENDAR SIC-REG.DAT SIC-FST.DAT
+
+at the A> prompt.
+
+
